@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="sysdate" class="java.util.Date"/>
+<bean id="dobDate" class="java.util.Date">
+<property name="year" value="90"/>
+<property name="month" value="3"/>
+<property name="date" value="5"/>
+</bean>
+<bean id="st" class="com.sb.beans.Student">
+<property name="marks">
+<array>
+<value>20</value>
+<value>60</value>
+<value>50</value>
+<value>40</value>
+</array>
+</property>
+<property name="impDate">
+<array>
+<ref bean="sysdate"/>
+<ref bean="dobDate"/>
+</array>
+</property>
+</bean>
+<!-- ________________________________________________________________________________________ -->
+<bean id="clgDetails" class="com.sb.beans.StudentDetails">
+<property name="studentNames">
+<list value-type="java.lang.String">
+<value>satya</value>
+<value>rama</value>
+<value>sita</value>
+<value>laxman</value>
+</list>
+</property>
+<property name="impDate">
+<list>
+<ref bean="sysdate"/>
+<ref bean="dobDate"/>
+<ref bean="sysdate"/>
+</list>
+</property>
+</bean>
+<!-- _______________________________________________________________________________________________ -->
+<bean id="hrs" class="com.sb.beans.MinestryOfHR">
+<property name="adharNumber">
+<list value-type="java.lang.Long">
+<value>100000000000001</value>
+<value>100000000000003</value>
+<value>100000000000004</value>
+<value>100000000000005</value>
+<value>100000000000006</value>
+</list>
+</property>
+<property name="impDate">
+<set value-type="java.util.Date">
+<ref bean="sysdate"/>
+<ref bean="dobDate"/>
+<ref bean="dobDate"/>
+</set>
+</property>
+</bean>
+<!-- _______________________________________________________________________________________________ -->
+<bean id="pp" class="com.sb.beans.PersonProfile">
+<property name="phno">
+<map>
+<entry>
+<key><value>person</value></key>
+<value>8249561618</value>
+</entry>
+<entry>
+<key><value>office</value></key>
+<value>7873553244</value>
+</entry>
+<entry value="91789387326">
+<key><value>Home</value></key>
+</entry>
+</map>
+</property>
+<property name="impdate">
+<map>
+<entry>
+<key><value>sysDate</value></key>
+<ref bean="sysdate"/>
+</entry>
+<entry>
+<key><value>dob</value></key>
+<ref bean="dobDate"/>
+</entry>
+</map>
+</property>
+</bean>
+</beans>
